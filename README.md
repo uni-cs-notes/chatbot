@@ -55,6 +55,4 @@ int main(){
 
    }
 
-//loop based game 
-
 ```
