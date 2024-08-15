@@ -1,15 +1,21 @@
 # chatbot
 my first project in cpp regarding the given unis assignments 
 ```
+// upgrade required in the code > functions 
 #include <iostream>
 #include <string>
+#include <ctime>
 using namespace std;
+void chatEnd(string name);
+void numG();
+void exitG();
+void mainG();
 int main(){
-    //introduction from user
+  //introduction from user
     string name;
-    cout<<"hi user plzz introduce yourself!!"<<endl;
-     cout<<"lets start with ur name -->:";
-      cin>>name;
+     cout<<"hi user plzz introduce yourself!!"<<endl;
+      cout<<"lets start with ur name -->:";
+        cin>>name;
        cout<<"hi "<<name<<endl;
     // ask for more info
      cout<<"well "<<name<<" tell me more about yourself"<<endl;
@@ -17,19 +23,20 @@ int main(){
     int age;
      cout<<"tell me how old are you "<<name<<" :";
      cin>>age;
-    if (age>=14){
-        cout<<"ohh so your a teenager"<<endl;
+    if (age < 11){
+        cout<<"ohh so your a kid"<<endl;
     }
-    else if (age>=20){
-      cout<<"so your a grown adult"<<endl;
+    else if (age < 19){
+      cout<<"so your a teen"<<endl;
     } else 
-       cout<<"ohh so your a kid"<<endl;
+       cout<<"ohh so your an adult"<<endl;
     // ask for nationality
     string national;
-     cout<<"well "<<name<<" what's your nationality:";
+     cout<<"well "<<name<<" where u belong from (country) :";
       cin>>national;
-        cout<<"good to hear about you indeed "<<national<<" is a great place.";
+        cout<<"good to hear about you indeed "<<national<<" is a great place.\n";
       //ask the permission to say something in their native language
+      if (national == "pakistan"){
       int lang;
       cout<<"what is ur native language"<<endl;
       cout<<"1.(urdu)"<<endl;
@@ -50,9 +57,81 @@ int main(){
           default: cout<<"I dont know the language!!"<<endl;
           break;
       }
-
+        }
+      char choice;
+        cout << "Do you want to play a game ??  \n y/n  \n";
+         cin >> choice; 
+       if (choice == 'y' || choice == 'Y'){
+         mainG();        
+         cout<<" thanks for ur time " << name <<" see u next time :)";
+    } else if (choice == 'n' || choice == 'N'){  
+      chatEnd(name);
+    }
+        
     return 0;
+}
+   
+/*
+void numG();
+void exitG();
+*/
+void mainG(){
+    
+    cout<<"number guessing game"<<endl;
 
-   }
-////////////////////////////
+    int options;
+    cout<<"press '1' to play !!!"<<endl;
+    cout<<"press '2' for exit !!"<<endl;
+    cin >>options;
+    switch (options){
+        case 1: numG();
+        break;
+        case 2: exitG();
+        break;
+    }  
+}
+        
+
+void numG()
+{
+    int number = 5;
+    int guess ;
+    int guesschance=0;
+
+
+    while (number != guess){
+
+        cout<<" Guess the number from 1 to 10 "<<endl;
+        cin>>guess;
+
+        if (guess < number)
+        {
+            cout<<" The number is too low."<<endl;
+        }
+        else if (guess > number)
+        {
+            cout<<" The number is too high."<<endl;
+        }
+        else
+        {
+            cout<<" You are correct! Congratulations!"<<endl;
+        }
+
+        guesschance++;
+    }
+
+    //cout<<" you made "<<guesschance<<" Attemps!"<<endl;
+}
+  //  }
+
+void exitG(){
+    cout<< "you have exited the game";
+}
+
+void chatEnd(string name){
+    cout<<"good to know u " << name << endl;
+ cout<<" see u next time !! ";
+    
+}
+
 ```
